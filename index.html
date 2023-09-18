@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets\style.css">
+    <title>Codey Quiz!</title>
+</head>
+
+<body>
+    <header class="top">
+        <h1 id="highscores">View High Scores!</h1> <!-- This will be a clickable element bringing up the highscores.-->
+        <h2 id="timer"></h2> <!-- We will set timer text and change timer text from Javascript.-->
+    </header>
+
+    <section id="begin"> <!-- We want to hide this so we will use an id selector in JS.-->
+        <h3>Click Below to begin your Timed Quiz!</h3>
+        <button id="start">Start</button>
+    </section>
+
+    <div id="quizbox"> <!-- Will be our quiz section. We will be appending from JS as well as recording answers. We want to hide our Section, and show our Div when we press start.-->
+        <h4 id="question">What is my name?</h4>
+        <ul>
+        <li id="question1" data-number="1">Cody Thompson</li>
+        <li id="question2" data-number="2">Bijan Olfati</li>
+        <li id="question3" data-number="3">Jason Mason</li>
+        <li id="question4" data-number="4">Jeremy</li>
+        </ul>
+        <h5 id="answer"></h5>
+    </div>
+
+    <div id ="results">
+        <h6>Results:</h6>
+        <p id="scoring">You Got a score of:<p>
+        <input type="text" id="content1" placeholder="Highscore Name" />
+        <button id="submit">Submit Score</button>
+    </div>
+
+    <div id="scores"> <!-- We make an entire section to hold the highscores-->
+        <div id="names"></div> <!-- we put content from localstorage into here!-->
+
+    </div>
+
+
+
+    <script type="text/javascript" src="assets\script.js"></script>
+</body>
+</html>
