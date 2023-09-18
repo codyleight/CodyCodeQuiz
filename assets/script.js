@@ -9,6 +9,7 @@ var question2 = document.getElementById('question2');
 var question3 = document.getElementById('question3');
 var question4 = document.getElementById('question4'); //end of questions
 var hspage = document.getElementById('scores');
+var quizended = false;
 
 
 var hs = document.getElementById('highscores'); //highscores clickable.
@@ -44,7 +45,8 @@ function quizStart(event){
     var timerInterval = setInterval(function() { //Begin timer countdown.
         timerEl.textContent = "Time Left: " + countdown-- + "s";
     
-        if(countdown === 0) {
+    
+        if(countdown === 0 || quizended) {
             timerEl.textContent = "";
           clearInterval(timerInterval);
           quizEnd(); //will go to quiz end function.
@@ -70,7 +72,7 @@ function quizStart(event){
 
 
 function quizEnd(event){ //Post results here, wether we finish by running out of time or out of questions.
-    
+    quizended = true;
    console.log("Quiz has now ended.")
    quizbox.style.display = "none";
    results.style.display = "block";
@@ -97,7 +99,8 @@ function highScores(event){ //High Scores function, add listener for this, as we
     localStorage.setItem("naming", nameContent); //setting value to naming in local storage
     var bigname = localStorage.getItem("naming"); //puts value from names into bigname.
 
-    names.textContent = bigname;
+    names.textContent = bigname + " got a score of " + score + "/4";
+    
     
     
 

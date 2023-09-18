@@ -2,6 +2,11 @@ header{
     display: flex;
 }
 
+body{
+    color: #5494f5;
+    background-color: antiquewhite;
+}
+
 h2{
     
     margin-left: auto;
@@ -92,4 +97,9 @@ div p{
     text-align: center;
     margin-left: 35px;
     color: rgb(30, 255, 0);
+}
+
+#names{
+    font-size: 48px;
+    text-align: center;
 }
