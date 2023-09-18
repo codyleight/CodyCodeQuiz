@@ -72,7 +72,7 @@ function quizStart(event){
 
 
 function quizEnd(event){ //Post results here, wether we finish by running out of time or out of questions.
-    quizended = true;
+    quizended = true; //call back to line 49, so we can exit out of countdown early.
    console.log("Quiz has now ended.")
    quizbox.style.display = "none";
    results.style.display = "block";
@@ -86,6 +86,7 @@ function quizEnd(event){ //Post results here, wether we finish by running out of
 }
 
 function highScores(event){ //High Scores function, add listener for this, as well as see if you can include a button in a header element.
+    event.preventDefault();
     console.log("We are now in highscores!");
     results.style.display = "none";
     quizbox.style.display = "none";
@@ -187,6 +188,7 @@ hs.addEventListener("click", highScores);
 
 
 quizbox.addEventListener("click", function(event) { //We only want this to save answers, questions will be written outside.
+    
     var element = event.target; 
     var datanum = element.getAttribute("data-number");
    
@@ -196,13 +198,13 @@ quizbox.addEventListener("click", function(event) { //We only want this to save 
     //TODO: Find the selection number of selected choice then save the answer!
 
 
-    
+    if (datanum == 1 ||datanum == 2|| datanum == 3 || datanum == 4){
 
     quizlength--;
     
     submitted(datanum);
     
-
+    } //if statement prevents event bubbling. although it is sloppy in this case. Should still work correctly.
 
 
 
