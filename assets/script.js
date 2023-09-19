@@ -35,7 +35,9 @@ var contentEL = document.getElementById('names'); //grabs our name section for h
 function quizStart(event){
     event.preventDefault();
 
-   
+    quizlength = 4; //current quiz length to tell us what question we are on and tell when end of quiz is.
+    score = 0; //current score.
+
     console.log("quiz is starting, timer should start now!");
 
     beginEl.style.display = "none"; // takes away Start button and header text.
@@ -100,7 +102,10 @@ function highScores(event){ //High Scores function, add listener for this, as we
     localStorage.setItem("naming", nameContent); //setting value to naming in local storage
     var bigname = localStorage.getItem("naming"); //puts value from names into bigname.
 
+    if (quizended){
     names.textContent = bigname + " got a score of " + score + "/4";
+    }
+
     
     
     
