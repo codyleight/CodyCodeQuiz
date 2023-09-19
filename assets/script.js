@@ -42,6 +42,8 @@ function quizStart(event){
 
     beginEl.style.display = "none"; // takes away Start button and header text.
     quizbox.style.display = "block"; //Will DIsplay Quizbox
+    hspage.style.display = "none";
+    
     
 
     var timerInterval = setInterval(function() { //Begin timer countdown.
@@ -106,10 +108,17 @@ function highScores(event){ //High Scores function, add listener for this, as we
     names.textContent = bigname + " got a score of " + score + "/4";
     }
 
-    
-    
-    
+    if (!quizended){
 
+   
+    var startAgain = document.createElement("button");
+
+    names.append(startAgain);
+    startAgain.textContent = "Start Quiz?";
+
+    startAgain.addEventListener("click", quizStart);
+    
+    }
     
 
 }
